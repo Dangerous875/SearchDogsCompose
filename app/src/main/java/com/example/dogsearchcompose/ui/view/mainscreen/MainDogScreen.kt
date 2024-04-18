@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.example.dogsearchcompose.ui.viewmodel.DogsViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
+
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainDogScreen(viewModel: DogsViewModel) {
@@ -90,7 +90,6 @@ fun ContentView(viewModel: DogsViewModel) {
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchView(
     query: String,
@@ -163,7 +162,7 @@ fun LazyColumnWithImages(imageUrls: List<String>) {
 fun ToolBar() {
     TopAppBar(
         title = { Text(text = "MainDogScreen", color = Color.White, fontStyle = FontStyle.Italic) },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.DarkGray
         )
     )
