@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.dogsearchcompose.ui.testDetail.model.SuperHeroDetail
 import com.example.dogsearchcompose.ui.theme.DogSearchComposeTheme
 import com.example.dogsearchcompose.ui.view.mainscreen.MainDogScreen
 import com.example.dogsearchcompose.ui.viewmodel.DogsViewModel
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainDogScreen(viewModel)
+//                    MainDogScreen(viewModel)
+                    SuperHeroDetail()
                 }
             }
         }

@@ -3,7 +3,7 @@ package com.example.dogsearchcompose.ui.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.dogsearchcompose.data.network.APIDog
+import com.example.dogsearchcompose.domain.GetDogsByBreed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DogsViewModel @Inject constructor(private val apiDog: APIDog) : ViewModel() {
+class DogsViewModel @Inject constructor(private val getDogsByBreed: GetDogsByBreed) : ViewModel() {
 
     private val _listDogs = MutableStateFlow<List<String>>(emptyList())
     val lisDogs = _listDogs.asStateFlow()
@@ -23,8 +23,8 @@ class DogsViewModel @Inject constructor(private val apiDog: APIDog) : ViewModel(
         Log.i("asd", query)
         _isLoading.value = true
         viewModelScope.launch {
-            val response = apiDog.getDogsByBreeds(query)
-            _listDogs.value = response.body()?.images ?: emptyList()
+            val response = getDogsByBreed(query)
+            _listDogs.value = response
             _isLoading.value = false
         }
     }
