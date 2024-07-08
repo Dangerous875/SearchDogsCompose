@@ -39,13 +39,14 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
-import com.example.dogsearchcompose.ui.viewmodel.DogsViewModel
+import com.example.dogsearchcompose.ui.view.mainscreen.viewmodel.DogsViewModel
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainDogScreen(viewModel: DogsViewModel) {
+fun MainDogScreen(viewModel: DogsViewModel = hiltViewModel()) {
     Scaffold(
         topBar = { ToolBar() },
         content = { ContentView(viewModel) }
@@ -106,16 +107,6 @@ fun SearchView(
                 contentDescription = "Search Icon"
             )
         },
-//        trailingIcon = {
-//            if (query.isNotEmpty()) {
-//                IconButton(onClick = { onSearch() }) {
-//                    Icon(
-//                        imageVector = Icons.Default.Search,
-//                        contentDescription = "Clear Icon"
-//                    )
-//                }
-//            }
-//        },
         keyboardOptions = KeyboardOptions.Default.copy(
             keyboardType = KeyboardType.Text,
             imeAction = ImeAction.Search

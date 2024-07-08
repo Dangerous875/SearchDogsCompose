@@ -1,4 +1,4 @@
-package com.example.dogsearchcompose.data.model
+package com.example.dogsearchcompose.data.local
 
 import javax.inject.Inject
 import javax.inject.Singleton
